@@ -1,0 +1,76 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Projekt.Pages"
+      xmlns:Projekt="clr-namespace:Projekt.Pages" 
+      xmlns:Projekt1="clr-namespace:Projekt" xmlns:Model="clr-namespace:Projekt.Model" x:Class="Projekt.Pages.AddProduct" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Shop">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26*" />
+            <RowDefinition Height="199*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Background="#FF514B51" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,586,0"/>
+        <StackPanel Background="#FF3B3E46" Grid.Column="1" Grid.Row="1"/>
+        <StackPanel Background="#FF7E7587" Grid.ColumnSpan="2" Margin="0,-8,0,0"/>
+
+        <TextBlock Text="ADD PRODUCT"                    
+                     FontSize="30"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center"                   
+                     Grid.Column="1"                                   
+                    Foreground="white"/>
+        <TextBlock                    
+            FontSize="15"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"                   
+            Grid.Column="1"                                   
+            Foreground="white" Margin="136,30,0,0" Grid.Row="1" Width="118" Height="23"><Run Language="pl-pl" Text="MUSIC DATA"/><LineBreak/><Run/></TextBlock>
+        <TextBlock                    
+            FontSize="15"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"                   
+            Grid.Column="1"                                   
+            Foreground="white" Margin="408,34,0,0" Grid.Row="1" Width="118"><Run Language="pl-pl" Text="ARTIST DATA"/></TextBlock>
+
+        <Label Grid.Column="1" Grid.Row="1" Foreground="white" 
+                               Content="Genre:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="33,160,0,0"/>
+        <TextBox Grid.Column="1" Grid.Row="1" 
+                                 x:Name="Year" VerticalAlignment="Top" Margin="118,131,346,0"/>
+        <Label Grid.Column="1" Grid.Row="1" Foreground="white"
+                               Content="Year:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="33,127,0,0"/>
+        <TextBox Grid.Column="1" Grid.Row="1"
+                                 x:Name="Album" VerticalAlignment="Top" Margin="118,100,346,0"/>
+        <Label Grid.Column="1" Grid.Row="1" Foreground="white"
+                               Content="Title:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="33,62,0,0"/>
+        <TextBox Grid.Column="1" Grid.Row="1" 
+                                 Name="Title" VerticalAlignment="Top" Margin="118,66,346,0"/>
+
+
+        <TextBox Grid.Column="1" Grid.Row="1" 
+            x:Name="Artist" VerticalAlignment="Top" Margin="399,66,65,0"/>
+        <Label Grid.Column="1" Grid.Row="1" Foreground="white"
+            Content="Artist:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="333,62,0,0"/>
+        <Label Grid.Column="1" Grid.Row="1" Foreground="white"
+            Content="Album:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="33,96,0,0"/>
+        <TextBox Grid.Column="1" Grid.Row="1" 
+            x:Name="Genre" VerticalAlignment="Top" Margin="118,165,346,0"/>
+
+        <Button Grid.Column="1" Grid.Row="1" Background="White" Foreground="Black"
+                                x:Name="ButtonAddNewRoom" Content="ADD" Width="164" Margin="0,295,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="Button_Click_AddProduct" Height="42"
+                                />
+
+
+    </Grid>
+</Page>
