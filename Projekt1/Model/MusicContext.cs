@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Projekt.Model
 {
@@ -33,35 +34,36 @@ namespace Projekt.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Albums>(entityTypeBuilder =>
-            {
-                entityTypeBuilder.ToTable("Album");
-                entityTypeBuilder.HasKey(h => h.id_album);
-                entityTypeBuilder.Property(h => h.album_name);
-                entityTypeBuilder.HasOne(h => h.Artists)
-                      .WithMany()
-                      .HasForeignKey(h => h.id_artist);
-
-            });
-
             modelBuilder.Entity<Artists>(entityTypeBuilder =>
             {
                 entityTypeBuilder.ToTable("Artist");
-                entityTypeBuilder.HasKey(r => r.id_artist);
-                entityTypeBuilder.Property(r => r.artist_name);
-                //entityTypeBuilder.HasOne(r => r.albums)
-                //    .WithMany()
-                //    .HasForeignKey(r => r.id_album);
-                
+                //entityTypeBuilder.HasKey(r => r.id_artist);
+                entityTypeBuilder.HasKey(r => r.artist_name);
+                entityTypeBuilder.Property(r => r.First_Name);
+                entityTypeBuilder.Property(r => r.Last_Name);
+                entityTypeBuilder.Property(r => r.Age);
+
             });
+
+            modelBuilder.Entity<Albums>(entityTypeBuilder =>
+            {
+                entityTypeBuilder.ToTable("Album");
+                //entityTypeBuilder.HasKey(h => h.id_album);
+                entityTypeBuilder.HasKey(h => h.album_name);
+                entityTypeBuilder.Property(h => h.release_date);
+                entityTypeBuilder.HasOne(h => h.Artists)
+                      .WithMany()
+                      .HasForeignKey(h => h.artist_NAME);
+                entityTypeBuilder.Navigation(h => h.Artists).AutoInclude();
+
+            });
+
             modelBuilder.Entity<Genres>(entityTypeBuilder =>
             {
                 entityTypeBuilder.ToTable("Genre");
-                entityTypeBuilder.HasKey(v => v.id_genre);
-                entityTypeBuilder.Property(v => v.genre);
-                entityTypeBuilder.HasOne(v => v.Tracks) // Zmiana na HasMany
-                    .WithMany()
-                    .HasForeignKey(t => t.id_track);
+                //entityTypeBuilder.HasKey(v => v.id_genre);
+                entityTypeBuilder.HasKey(v => v.genre);
+
             });
 
             modelBuilder.Entity<Tracks>(entityTypeBuilder =>
@@ -72,14 +74,17 @@ namespace Projekt.Model
                 entityTypeBuilder.Property(h => h.creation_year);
                 entityTypeBuilder.HasOne(h => h.Albums)
                     .WithMany()
-                    .HasForeignKey(h => h.id_album);
+                    .HasForeignKey(h => h.album_NAME);
                 entityTypeBuilder.HasOne(h => h.Genres)
                     .WithMany()
-                    .HasForeignKey(h => h.id_genre);
+                    .HasForeignKey(h => h.genre_NAME);
+                entityTypeBuilder.Navigation(h => h.Albums).AutoInclude();
+                entityTypeBuilder.Navigation(h => h.Genres).AutoInclude();
             });
-
-
+            
         }
+
+
 
     }
 }

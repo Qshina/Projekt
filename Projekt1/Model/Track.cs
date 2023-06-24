@@ -11,24 +11,19 @@ namespace Projekt.Model
 {
     public class Tracks
     {
-        /*
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tracks()
-        {
-            this.Genres = new ObservableCollection<Genres>();
-        }
-        */
+        // KLUCZ GŁÓWNY
         [Key] public int id_track { get; set; }
         public string title { get; set; }
-        public int creation_year { get; set; }
-        public virtual int id_album { get; set; }
-        public virtual int id_genre { get; set; }
+        public DateTime creation_year { get; set; }
+
+        // KLUCZE OBCE
+        //public virtual int? album_NAME { get; set; }
+        public virtual string? album_NAME { get; set; }
         public virtual Albums Albums { get; set; }
+        //public virtual int? genre_NAME { get; set; }
+        public virtual string? genre_NAME { get; set; }
         public virtual Genres Genres { get; set; }
-        /*
-        [ForeignKey("id_album")] public virtual Albums Albums { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableCollection<Genres> Genres { get; set; }
-        */
+
+
     }
 }

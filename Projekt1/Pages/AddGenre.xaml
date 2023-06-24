@@ -1,0 +1,70 @@
+﻿<Page x:Class="Projekt.Pages.AddGenre"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Projekt.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddGenre">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="377*" />
+            <ColumnDefinition Width="423*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26*" />
+            <RowDefinition Height="199*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Background="#FF514B51" Grid.Row="1"/>
+        <StackPanel Background="#FF3B3E46" Grid.Column="1" Grid.Row="1"/>
+        <StackPanel Background="#FF7E7587" Grid.ColumnSpan="2" Margin="0,-8,0,0"/>
+
+        <TextBlock                    
+                     FontSize="30"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Left"                   
+                     Grid.Column="1"                                   
+                    Foreground="white" Height="40" Width="109" Margin="10,0,0,0"><Run Language="pl-pl" Text="Genres"/></TextBlock>
+        <TextBlock                    
+            FontSize="15"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"                   
+            Grid.Column="1"                                   
+            Foreground="white" Margin="0,10,0,0" Grid.Row="1" Width="118" Height="20"><Run Language="pl-pl" Text="GENRES DATA"/></TextBlock>
+
+
+        <TextBox Grid.Column="1" Grid.Row="1" 
+            x:Name="genre" VerticalAlignment="Top" Margin="129,61,56,0" Height="26"/>
+        <Label Grid.Row="1" Foreground="white"
+            Content="Genre:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="27,61,0,0" Height="26" Width="92" Grid.Column="1"/>
+
+        <Button Grid.Column="1" Grid.Row="1" Background="White" Foreground="Black"
+                                x:Name="ButtonAdd" Content="ADD" Width="164" Margin="0,295,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Click="Button_Click_Add" Height="42"
+                                />
+
+        <DataGrid  Grid.Row="1"
+                              x:Name="Genre"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              Background="#FF646769">
+            <DataGrid.Columns>
+                <!-- TUTAJ BINDING-->
+                <DataGridTextColumn Width="4*" Header="Genre" Binding="{Binding genre}" />
+                <DataGridTemplateColumn Width="3*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="ButtonDelete_Click">Delete</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</Page>

@@ -25,17 +25,21 @@ namespace Projekt
         {
             InitializeComponent();
         }
-        private void Button_Click_AddProduct(object sender, RoutedEventArgs e)
+        private void Button_Click_ArtistPage(object sender, RoutedEventArgs e)
         {
-            Navigate(new Uri("./Pages/AddProduct.xaml", UriKind.Relative));
+            Navigate(new Uri("./Pages/AddArtist.xaml", UriKind.Relative));
         }
-        private void Button_Click_Search(object sender, RoutedEventArgs e)
+        private void Button_Click_AlbumPage(object sender, RoutedEventArgs e)
         {
-            Navigate(new Uri("./Pages/Search.xaml", UriKind.Relative));
+            Navigate(new Uri("./Pages/AddAlbum.xaml", UriKind.Relative));
         }
-        private void Button_Click_AllProduct(object sender, RoutedEventArgs e)
+        private void Button_Click_AddTrack(object sender, RoutedEventArgs e)
         {
-            Navigate(new Uri("./Pages/AllProduct.xaml", UriKind.Relative));
+            Navigate(new Uri("./Pages/AddTrack.xaml", UriKind.Relative));
+        }
+        private void Button_Click_AddGenre(object sender, RoutedEventArgs e)
+        {
+            Navigate(new Uri("./Pages/AddGenre.xaml", UriKind.Relative));
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Foreground="{x:Null}">
+        Title="MainWindow" Height="550" Width="800" Foreground="{x:Null}">
     <NavigationWindow.Background>
         <ImageBrush ImageSource="/Musicshop.jpg" Stretch="UniformToFill"/>
     </NavigationWindow.Background>
@@ -25,7 +25,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <Grid Grid.Row="0" Style="{StaticResource navigation}" RenderTransformOrigin="0.472,0.433">
+            <Grid x:Name="ADD_ARTIST" Grid.Row="1" Style="{StaticResource navigation}" RenderTransformOrigin="0.472,0.433" Margin="0,334,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"/>
                     <!-- HOME -->
@@ -38,13 +38,12 @@
                 </Grid.ColumnDefinitions>
 
 
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBlock Text="Music Store"  Style="{StaticResource navbutton}" />
-                </StackPanel>
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-                <Button Click="Button_Click_AddProduct" Style="{StaticResource navbutton}" Grid.Column="1">ADD PRODUCT</Button>
-                <Button Click="Button_Click_Search" Style="{StaticResource navbutton}" Grid.Column="2">SEARCH PRODUCT</Button>
-                <Button Click="Button_Click_AllProduct" Style="{StaticResource navbutton}" Grid.Column="3">ALL PRODUCT</Button>
+                <Button Click="Button_Click_AlbumPage" Style="{StaticResource navbutton}" Grid.Column="1" Content="ALBUM"/>
+                <Button Click="Button_Click_AddTrack" Style="{StaticResource navbutton}" Grid.Column="2" Content="TRACK"/>
+                <Button Click="Button_Click_AddGenre" Style="{StaticResource navbutton}" Grid.Column="3" Content="GENRE"/>
+                <Button Click="Button_Click_ArtistPage" Style="{StaticResource navbutton}" Content="ARTIST"/>
 
             </Grid>
         </Grid>
